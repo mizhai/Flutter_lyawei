@@ -21,4 +21,7 @@ Flutter中文网
     慕课网免费课程
         https://www.imooc.com/learn/1090
 
+    Flutter 优质文章集
+        https://www.jianshu.com/u/cbf2ad25d33a
+
 
