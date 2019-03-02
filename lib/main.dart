@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lyawei/DemosHome.dart';
 
 void main() => runApp(MyApp());
 
@@ -52,9 +53,16 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
-            Text(
-              '查看合集',
-              style: TextStyle(color: Colors.red),
+            RaisedButton(
+              child: Text('查看详情'),
+              textColor: Colors.blue,
+              color: Colors.orange,
+              onPressed: () {
+                Navigator.push(context,
+                    new MaterialPageRoute(builder: (context) {
+                  return new DemosHome();
+                }));
+              },
             )
           ],
         ),
