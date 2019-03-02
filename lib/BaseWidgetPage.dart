@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lyawei/ButtonWidgetPage.dart';
 import 'package:flutter_lyawei/TextWidgetPage.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class BaseWidgetpage extends StatelessWidget {
   @override
@@ -13,10 +15,26 @@ class BaseWidgetpage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           RaisedButton(
-            child: Text('text组件'),
+            child: Text('Text组件'),
             onPressed: () {
               Navigator.push(context, new MaterialPageRoute(builder: (context) {
                 return new TextWidgetPage();
+              }));
+            },
+          ),
+          RaisedButton(
+            child: Text('Button组件'),
+            onPressed: () {
+//              Fluttertoast.showToast(
+//                  msg: 'RaisedButton',
+//                  toastLength: Toast.LENGTH_LONG,
+//                  gravity: ToastGravity.CENTER,
+//                  timeInSecForIos: 1,
+//                  backgroundColor: Colors.red,
+//                  textColor: Colors.white,
+//                  fontSize: 16.0);
+              Navigator.push(context, new MaterialPageRoute(builder: (context) {
+                return new ButtonWidgetPage();
               }));
             },
           )
