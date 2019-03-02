@@ -14,14 +14,14 @@ class ButtonWidgetPage extends StatelessWidget {
             child: Text('RaisedButton'),
             onPressed: () {
               print("点击");
-//              Fluttertoast.showToast(
-//                  msg: 'RaisedButton',
-//                  toastLength: Toast.LENGTH_LONG,
-//                  gravity: ToastGravity.CENTER,
-//                  timeInSecForIos: 1,
-//                  backgroundColor: Colors.red,
-//                  textColor: Colors.white,
-//                  fontSize: 16.0);
+              Fluttertoast.showToast(
+                  msg: 'RaisedButton',
+                  toastLength: Toast.LENGTH_LONG,
+                  gravity: ToastGravity.CENTER,
+                  timeInSecForIos: 1,
+                  backgroundColor: Colors.red,
+                  textColor: Colors.white,
+                  fontSize: 16.0);
             },
           ),
           FlatButton(
