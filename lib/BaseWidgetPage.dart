@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lyawei/ButtonWidgetPage.dart';
+import 'package:flutter_lyawei/CheckBoxPage.dart';
 import 'package:flutter_lyawei/ImageWidgetPage.dart';
+import 'package:flutter_lyawei/TextFieldWidgetPage.dart';
 import 'package:flutter_lyawei/TextWidgetPage.dart';
 
 class BaseWidgetpage extends StatelessWidget {
@@ -35,6 +37,22 @@ class BaseWidgetpage extends StatelessWidget {
             onPressed: () {
               Navigator.push(context, new MaterialPageRoute(builder: (context) {
                 return new ImageWidgetPage();
+              }));
+            },
+          ),
+          RaisedButton(
+            child: Text('单选开关及复选框'),
+            onPressed: () {
+              Navigator.push(context, new MaterialPageRoute(builder: (context) {
+                return new CheckBoxPage();
+              }));
+            },
+          ),
+          RaisedButton(
+            child: Text('输入框控件'),
+            onPressed: () {
+              Navigator.push(context, new MaterialPageRoute(builder: (context) {
+                return new TextFieldWidgetPage();
               }));
             },
           )
