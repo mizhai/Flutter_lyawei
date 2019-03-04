@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lyawei/ButtonWidgetPage.dart';
+import 'package:flutter_lyawei/ImageWidgetPage.dart';
 import 'package:flutter_lyawei/TextWidgetPage.dart';
 
 class BaseWidgetpage extends StatelessWidget {
@@ -24,16 +25,16 @@ class BaseWidgetpage extends StatelessWidget {
           RaisedButton(
             child: Text('Button组件'),
             onPressed: () {
-//              Fluttertoast.showToast(
-//                  msg: 'RaisedButton',
-//                  toastLength: Toast.LENGTH_LONG,
-//                  gravity: ToastGravity.CENTER,
-//                  timeInSecForIos: 1,
-//                  backgroundColor: Colors.red,
-//                  textColor: Colors.white,
-//                  fontSize: 16.0);
               Navigator.push(context, new MaterialPageRoute(builder: (context) {
                 return new ButtonWidgetPage();
+              }));
+            },
+          ),
+          RaisedButton(
+            child: Text('图片组件'),
+            onPressed: () {
+              Navigator.push(context, new MaterialPageRoute(builder: (context) {
+                return new ImageWidgetPage();
               }));
             },
           )

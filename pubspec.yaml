@@ -18,6 +18,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+  - assets/images/pozhu_icon.png
   fonts:
   - family: 自定义字体
     fonts:
@@ -25,4 +27,7 @@ flutter:
   - family: 安娜一号中文
     fonts:
     - asset: assets/fonts/安娜一号中文.ttf
+  - family: myicon
+    fonts:
+    - asset: assets/fonts/iconfont.ttf
 
