@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lyawei/BaseWidgetPage.dart';
 import 'package:flutter_lyawei/DemosHome.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,12 +28,29 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   int _counter = 0;
+  List tabs = ['新闻', '视频', '图片'];
+  TabController _tabController;
 
   void _incrementCounter() {
     setState(() {
       _counter++;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _tabController = TabController(length: tabs.length, vsync: this);
+    _tabController.addListener(() {
+      switch (_tabController.index) {
+//        case 1:
+//          print('1');
+//        case 2:
+      }
     });
   }
 
@@ -42,6 +60,22 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.share),
+            onPressed: () {
+              Fluttertoast.showToast(
+                  msg: 'fenxiang', gravity: ToastGravity.CENTER);
+            },
+          )
+        ],
+        bottom: TabBar(
+          tabs: tabs.map((e) => Tab(text: e)).toList(),
+          controller: _tabController,
+        ),
+      ),
+      drawer: Drawer(
+        child: (Text('抽屉页面')),
       ),
       body: Center(
         child: Column(
@@ -76,3 +110,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+class _Controller {}
