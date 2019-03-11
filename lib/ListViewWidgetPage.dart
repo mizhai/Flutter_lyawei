@@ -19,7 +19,6 @@ class _ListViewWidgetPageState extends State<ListViewWidgetPage> {
                 padding: EdgeInsets.all(20.0),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    color: Colors.red,
                   ),
                   child: Text(c),
                 ),
@@ -42,6 +41,14 @@ class _ListViewWidgetPageState extends State<ListViewWidgetPage> {
                 children: widgets,
               ),
             ),
+            Expanded(
+              flex: 1,
+              child: ListView(
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                children: widgets,
+              ),
+            )
           ],
         ),
       )),

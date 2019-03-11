@@ -96,7 +96,7 @@ class DemosHome extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context,
                     new MaterialPageRoute(builder: (context) {
-                  return new DataModelPage();
+                  return DataModelPage();
                 }));
               },
             )
