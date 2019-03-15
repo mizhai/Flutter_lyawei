@@ -7,6 +7,7 @@ import 'package:flutter_lyawei/DataModelPage.dart';
 import 'package:flutter_lyawei/EventAndNotifyPage.dart';
 import 'package:flutter_lyawei/FunctionWidgetsPage.dart';
 import 'package:flutter_lyawei/LayoutWidgetsPage.dart';
+import 'package:flutter_lyawei/PozhuHomePage.dart';
 import 'package:flutter_lyawei/ScrollWidgetsPage.dart';
 
 class DemosHome extends StatelessWidget {
@@ -97,6 +98,15 @@ class DemosHome extends StatelessWidget {
                 Navigator.push(context,
                     new MaterialPageRoute(builder: (context) {
                   return DataModelPage();
+                }));
+              },
+            ),
+            FlatButton(
+              child: Text('综合案例'),
+              onPressed: () {
+                Navigator.push(context,
+                    new MaterialPageRoute(builder: (context) {
+                  return PozhuHomePage();
                 }));
               },
             )
