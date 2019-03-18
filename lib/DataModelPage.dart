@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter/material.dart';
+
 import 'package:dio/dio.dart';
-import 'package:flutter_lyawei/bean/HousesBean.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_lyawei/bean/HouseListBean.dart';
 
 class DataModelPage extends StatefulWidget {
   @override
@@ -18,6 +19,12 @@ class _DataModelPage extends State<DataModelPage> {
       "https://newapi.mizhai.com/SDK/LoupanSaiXuan.html?siteID=1&typeid=0&areaid=0&priceid=0&tagid=0&hide=0&sort=0&keyword=&mapX=0&mapY=0&juli=0&p=1&streetid=0&tj=0";
   Dio dio;
 
+  var j =
+      '{"status": 1,"msg": "OK","hidecount": "113","count": "920","data": [{"id": "1984","name": "富田城九鼎公馆","isrecom": "1","areaid": "5","address": "管城区-管城回族区南三环与郑尉路交叉口东南角","thumb": "http://imga.mizhai.com/newhouse/2018-03/06/5a9e2f56553de-re.jpg","tags": "地铁","price_type": "元/㎡","fzjuli": "0","discount": "","dpnums": "111","lpfujiaxinxi": {"zhishu": "1.1","star": 2,"miaoshu": "若隐若现"}}]}';
+
+  var jj =
+      '{"status": 1,"msg": "OK","hidecount": "113","count": "920","data": [{"id": "1984","name": "富田城九鼎公馆","isrecom": "1","areaid": "5","address": "管城区-管城回族区南三环与郑尉路交叉口东南角","thumb": "http://imga.mizhai.com/newhouse/2018-03/06/5a9e2f56553de-re.jpg","tags": "地铁","price_type": "元/㎡","fzjuli": "0","discount": "","dpnums": "111","lpfujiaxinxi": {"zhishu": "1.1","star": 2,"miaoshu": "若隐若现"}}]}';
+
   @override
   void initState() {
     // TODO: implement initState
@@ -29,8 +36,6 @@ class _DataModelPage extends State<DataModelPage> {
 //    getData1();
     getData2();
   }
-
-//  String url = "https://www.baidu.com";
 
   @override
   Widget build(BuildContext context) {
@@ -57,10 +62,17 @@ class _DataModelPage extends State<DataModelPage> {
     HttpClientResponse _response = await _request.close();
     _responsenData = await _response.transform(utf8.decoder).join();
     print(_responsenData);
+
+    var decode = jsonDecode(_responsenData);
+    var houseListBean = HouseListBean.fromJson(decode);
+    print(houseListBean.data[0].name);
   }
 
   void getData2() async {
-    Response response = await dio.get('LoupanSaiXuan.html', queryParameters: {
+    setState(() {
+      _responsenData = '请求中...';
+    });
+    Response response = await dio.post('LoupanSaiXuan.html', queryParameters: {
       "siteID": 1,
       "typeid": 0,
       "areaid": 0,
@@ -77,12 +89,10 @@ class _DataModelPage extends State<DataModelPage> {
       "tj": 0,
     });
     setState(() {
-      _responsenData = response.data.toString();
-//      Map houseMap = json.decode(_responsenData);
-//      var houses =  HousesBean.fromJson(houseMap);
-//      var houses = HousesBean.fromMap(houseMap);
-//      var address2 = houses.data[0].address;
-//      print('第一个地址:${address2}');
+      var decode = json.decode(response.toString());
+      var houseListBean = HouseListBean.fromJson(decode);
+      print(houseListBean.data[1].name);
+      _responsenData = houseListBean.data[1].name;
     });
   }
 }

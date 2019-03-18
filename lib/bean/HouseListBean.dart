@@ -1,13 +1,13 @@
-class HousesBean {
+class HouseListBean {
   String msg;
   String hidecount;
   String count;
   int status;
   List<DataListBean> data;
 
-  HousesBean({this.msg, this.hidecount, this.count, this.status, this.data});
+  HouseListBean({this.msg, this.hidecount, this.count, this.status, this.data});
 
-  HousesBean.fromJson(Map<String, dynamic> json) {    
+  HouseListBean.fromJson(Map<String, dynamic> json) {    
     this.msg = json['msg'];
     this.hidecount = json['hidecount'];
     this.count = json['count'];
@@ -57,7 +57,7 @@ class DataListBean {
     this.discount = json['discount'];
     this.price = json['price'];
     this.dpnums = json['dpnums'];
-    this.lpfujiaxinxi = LpfujiaxinxiBean.fromJson(json['lpfujiaxinxi']);
+    this.lpfujiaxinxi = json['lpfujiaxinxi'] != null ? LpfujiaxinxiBean.fromJson(json['lpfujiaxinxi']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -74,7 +74,9 @@ class DataListBean {
     data['discount'] = this.discount;
     data['price'] = this.price;
     data['dpnums'] = this.dpnums;
-    data['lpfujiaxinxi'] = this.lpfujiaxinxi.toJson();
+    if (this.lpfujiaxinxi != null) {
+      data['lpfujiaxinxi'] = this.lpfujiaxinxi.toJson();
+    }
     return data;
   }
 }

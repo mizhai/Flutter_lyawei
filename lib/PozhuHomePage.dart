@@ -31,7 +31,8 @@ class _PozhuHomePageState extends State<PozhuHomePage> {
       )),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('首页')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home), title: Text('首页')),
           BottomNavigationBarItem(
               icon: Icon(Icons.keyboard), title: Text('破竹号')),
           BottomNavigationBarItem(
